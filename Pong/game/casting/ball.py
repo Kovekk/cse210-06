@@ -1,6 +1,7 @@
 import random
 from game.casting.actor import Actor
 from game.shared.point import Point
+from constants import *
 
 
 class Ball(Actor):
@@ -13,7 +14,7 @@ class Ball(Actor):
 
     def bounce_x(self):
 
-        velocity = self.body.get_velocity()
+        velocity = self._body.get_velocity()
         rn = random.uniform(0.9, 1.1)
         vx = velocity.get_x() * rn * -1
         vy = velocity.get_y()
