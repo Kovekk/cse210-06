@@ -5,3 +5,5 @@ def main():
     director = Director(VideoService())
     director.start_game()
 
+if __name__ == "__main__":
+    main()
