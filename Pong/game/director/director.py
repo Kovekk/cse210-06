@@ -35,9 +35,9 @@ class Director:
 
         self._video_service.open_window()
         while self._video_service.is_window_open():
-            self._execute_actions("input", self._cast, self._script)
-            self._execute_actions("update", self._cast, self._script)
-            self._execute_actions("output", self._cast, self._script)
+            self._execute_actions("input")
+            self._execute_actions("update")
+            self._execute_actions("output")
         self._video_service.close_window()
 
     def _execute_actions(self, group):
