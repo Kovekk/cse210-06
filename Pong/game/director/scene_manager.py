@@ -15,7 +15,7 @@ from game.scripting.handle_collisions_action import HandleCollisionsAction
 from game.scripting.move_actors_action import MoveActorsAction
 from game.scripting.control_menu_action import ControlMenuAction
 from game.scripting.draw_menu_action import DrawMenuAction
-from game.scripting.draw_racket_action import DrawRacketAction
+from game.scripting.draw_paddle_action import DrawPaddleAction
 from game.scripting.start_drawing_action import StartDrawingAction
 
 from game.services.keyboard_service import KeyboardService
@@ -54,9 +54,12 @@ class SceneManager:
         left_paddle = Paddle(Body(position= Point(25, 263), size= Point(10, 75)))
         cast.add_actor(PADDLE_GROUP, left_paddle)
 
+        right_paddle = Paddle(Body(position= Point(MAX_X - 35, 263), size= Point(10, 75)))
+        cast.add_actor(PADDLE_GROUP, right_paddle)
+
         script.add_action("input", Action())
         script.add_action("update", Action())
-        script.add_action("output", DrawRacketAction(self._video_service))
+        script.add_action("output", DrawPaddleAction(self._video_service))
 
     def _prepare_3_player_pong(self, cast, script):
         pass
