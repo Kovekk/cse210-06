@@ -8,8 +8,6 @@ from game.casting.body import Body
 
 from game.scripting.script import Script
 from game.scripting.action import Action
-from game.scripting.control_actors_action_p1 import ControlActorsAction
-from game.scripting.control_actors_action_p2 import ControlActorsAction
 from game.scripting.draw_actors_action import DrawActorsAction
 from game.scripting.handle_collisions_action import HandleCollisionsAction
 from game.scripting.move_actors_action import MoveActorsAction
