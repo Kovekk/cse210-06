@@ -8,8 +8,6 @@ from game.casting.body import Body
 
 from game.scripting.script import Script
 from game.scripting.action import Action
-from game.scripting.control_actors_action_p1 import ControlActorsAction
-from game.scripting.control_actors_action_p2 import ControlActorsAction
 from game.scripting.draw_actors_action import DrawActorsAction
 from game.scripting.handle_collisions_action import HandleCollisionsAction
 from game.scripting.move_actors_action import MoveActorsAction
@@ -56,13 +54,17 @@ class SceneManager:
     def _prepare_original_pong(self, cast, script):
         keyboard_service = KeyboardService()
 
-        left_paddle = Paddle(Body(position= Point(25, 263), size= Point(10, 75)))
+        left_paddle = Paddle(Body(position= Point(25, CENTER_Y - (75 / 2)), size= Point(10, 75)))
         cast.add_actor(PADDLE_GROUP, left_paddle)
 
-        right_paddle = Paddle(Body(position= Point(MAX_X - 35, 263), size= Point(10, 75)))
+        right_paddle = Paddle(Body(position= Point(MAX_X - 35, CENTER_Y - (75 / 2)), size = Point(10, 75)))
         cast.add_actor(PADDLE_GROUP, right_paddle)
 
+<<<<<<< HEAD
         ball = Ball((Body(position= Point(CENTER_X, CENTER_Y), size= Point(10, 10))))
+=======
+        ball = Ball(Body(position = Point(CENTER_X, CENTER_Y), size = Point(10, 10)))
+>>>>>>> fa41fa3e664b9af7f9faa12c884d1e2fd8a5236c
         cast.add_actor(BALL_GROUP, ball)
 
         script.add_action("input", ControlPaddleAction(keyboard_service))
@@ -72,8 +74,7 @@ class SceneManager:
         script.add_action("output", DrawBallAction(self._video_service))
         script.add_action("output", EndDrawingAction(self._video_service))
 
-    def _prepare_3_player_pong(self, cast, script):
-        pass
+        
 
 
     def reset_scene(self, cast, script):
