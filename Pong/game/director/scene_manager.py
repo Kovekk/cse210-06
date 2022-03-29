@@ -51,14 +51,15 @@ class SceneManager:
 
     def _prepare_original_pong(self, cast, script):
 
-        left_paddle = Paddle(Body(position= Point(300, 300), size= Point(305, 320)))
+        left_paddle = Paddle(Body(position= Point(25, 263), size= Point(10, 75)))
         cast.add_actor(PADDLE_GROUP, left_paddle)
 
         script.add_action("input", Action())
         script.add_action("update", Action())
         script.add_action("output", DrawRacketAction(self._video_service))
 
-        
+    def _prepare_3_player_pong(self, cast, script):
+        pass
 
 
     def reset_scene(self, cast, script):

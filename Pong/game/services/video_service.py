@@ -91,7 +91,7 @@ class VideoService:
         width = pyray.measure_text(text, font_size)
         return int(width / 2)
 
-    def draw_rectangle(self, rectangle, color, filled = False):
+    def draw_rectangle(self, rectangle, color, filled = True):
         x = int(rectangle.get_position().get_x())
         y = int(rectangle.get_position().get_y())
         width = int(rectangle.get_size().get_x())

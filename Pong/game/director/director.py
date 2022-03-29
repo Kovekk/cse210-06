@@ -30,7 +30,7 @@ class Director:
             script (Script): The script of actions.
         """
 
-        self.scene_manager.prepare_scene("menu", self._cast, self._script)
+        self.scene_manager.prepare_scene("original_pong", self._cast, self._script)
 
 
         self._video_service.open_window()
