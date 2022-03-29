@@ -3,9 +3,9 @@ from constants import *
 from game.shared.point import Point
 class Paddle(Actor):
 
-    def __init__(self, body, debug = False):
+    def __init__(self, body):
 
-        super().__init__(debug)
+        super().__init__()
         self._body = body
 
     def get_body(self):

@@ -22,7 +22,7 @@ class Director:
         self._cast = Cast()
         self.scene_manager = SceneManager()
         
-    def start_game(self):
+    def start_game(self, cast, script):
         """Starts the game using the given cast and script. Runs the main game loop.
 
         Args:
@@ -30,17 +30,17 @@ class Director:
             script (Script): The script of actions.
         """
 
-        self.scene_manager.prepare_scene("menu", self._cast, self._script)
+        self.scene_manager.prepare_scene("original_pong", cast, script)
 
 
         self._video_service.open_window()
         while self._video_service.is_window_open():
-            self._execute_actions("input", self._cast, self._script)
-            self._execute_actions("update", self._cast, self._script)
-            self._execute_actions("output", self._cast, self._script)
+            self._execute_actions("input", cast, script)
+            self._execute_actions("update", cast, script)
+            self._execute_actions("output", cast, script)
         self._video_service.close_window()
 
-    def _execute_actions(self, group):
+    def _execute_actions(self, group, cast, script):
         """Calls execute for each action in the given group.
         
         Args:
@@ -50,7 +50,7 @@ class Director:
         """
         actions = self._script.get_actions(group)    
         for action in actions:
-            action.execute(self._cast, self._script)
+            action.execute(cast, script)
 
 
     def change_scene(self, scene):

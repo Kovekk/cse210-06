@@ -6,11 +6,10 @@ from constants import *
 
 class Ball(Actor):
 
-    def __init__(self, body, image, debug = False):
+    def __init__(self, body):
 
-        super().__init__(debug)
+        super().__init__()
         self._body = body
-        self._image = image
 
     def bounce_x(self):
 
@@ -27,7 +26,7 @@ class Ball(Actor):
         rn = random.uniform(0.9, 1.1)
         vx = velocity.get_x()
         vy = velocity.get_y() * rn * -1
-        veloctiy = Point(vx, vy)
+        velocity = Point(vx, vy)
         self._body.set_velocity(velocity)
 
     def get_body(self):

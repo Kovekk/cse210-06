@@ -20,7 +20,7 @@ class ControlMenuAction(Action):
             script (Script): The script of Actions in the game.
         """
         # left
-        if self._keyboard_service.is_key_down('1'):
+        if self._keyboard_service.is_key_pressed('1'):
             self._scene_manager.prepare_scene("original_pong", cast, script)
 
     def _start_original_pong(self, cast, script):
