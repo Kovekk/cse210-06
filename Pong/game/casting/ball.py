@@ -6,8 +6,10 @@ from constants import *
 
 class Ball(Actor):
 
-    def __init__(self):
+    def __init__(self, body):
+
         super().__init__()
+        self._body = body
 
     def bounce_x(self):
 

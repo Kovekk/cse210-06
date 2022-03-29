@@ -5,7 +5,7 @@ from game.casting.rectangle import Rectangle
 class Body:
     """A rigid body used for physics operations."""
     
-    def __init__(self, position = Point(0, 0), size = Point(0, 0), velocity = Point(0, 0)):
+    def __init__(self, position, size, velocity = Point(0, 0)):
         """Constructs a new Body."""
         self._position = position
         self._size = size

@@ -15,7 +15,7 @@ from game.scripting.handle_collisions_action import HandleCollisionsAction
 from game.scripting.move_actors_action import MoveActorsAction
 from game.scripting.control_menu_action import ControlMenuAction
 from game.scripting.draw_menu_action import DrawMenuAction
-from game.scripting.draw_racket_action import DrawRacketAction
+from game.scripting.draw_paddle_action import DrawPaddleAction
 from game.scripting.start_drawing_action import StartDrawingAction
 
 from game.services.keyboard_service import KeyboardService
@@ -54,12 +54,15 @@ class SceneManager:
         left_paddle = Paddle(Body(position= Point(25, CENTER_Y - (75 / 2)), size= Point(10, 75)))
         cast.add_actor(PADDLE_GROUP, left_paddle)
 
-        right_paddle = Paddle(Body(position= Point(MAX_X - 100, CENTER_Y), size = Point(10, 75)))
+        right_paddle = Paddle(Body(position= Point(MAX_X - 35, CENTER_Y - (75 / 2)), size = Point(10, 75)))
         cast.add_actor(PADDLE_GROUP, right_paddle)
+
+        ball = Ball(Body(position = Point(CENTER_X, CENTER_Y), size = Point(10, 10)))
+        cast.add_actor(BALL_GROUP, ball)
 
         script.add_action("input", Action())
         script.add_action("update", Action())
-        script.add_action("output", DrawRacketAction(self._video_service))
+        script.add_action("output", DrawPaddleAction(self._video_service))
 
         
 
