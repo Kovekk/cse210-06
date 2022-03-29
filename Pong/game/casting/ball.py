@@ -1,13 +1,13 @@
 import random
-from game.casting.actor import Actor
 from game.shared.point import Point
 from constants import *
+from game.casting.body import Body
 
 
-class Ball(Actor):
+class Ball():
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, body):
+        self._body = body
 
     def bounce_x(self):
 
