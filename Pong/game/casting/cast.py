@@ -46,4 +46,4 @@ class Cast:
                 self._actors[group].remove(actor)
 
     def remove_all_actors(self):
-            self._actors.clear()
+        self._actors.clear()

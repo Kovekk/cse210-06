@@ -3,10 +3,11 @@ from game.shared.color import Color
 # GAME
 CAPTION = "Pong"
 FRAME_RATE = 60
+CELL_SIZE = 15
 
 # SCREEN
-MAX_X = 1040
-MAX_Y = 680
+MAX_X = 1200
+MAX_Y = 600
 CENTER_X = MAX_X / 2
 CENTER_Y = MAX_Y / 2
 

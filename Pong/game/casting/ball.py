@@ -6,14 +6,12 @@ from constants import *
 
 class Ball(Actor):
 
-    def __init__(self, body):
-
+    def __init__(self):
         super().__init__()
-        self._body = body
 
     def bounce_x(self):
 
-        velocity = self._body.get_velocity()
+        velocity = self.get_velocity()
         rn = random.uniform(0.9, 1.1)
         vx = velocity.get_x() * rn * -1
         vy = velocity.get_y()

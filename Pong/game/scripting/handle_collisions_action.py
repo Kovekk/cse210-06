@@ -7,7 +7,7 @@ class HandleCollisionsAction(Action):
         self._is_game_over = False
         self._winner = ""
 
-    def execute(self, cast, script):
+    def execute(self, cast, script, callback):
 
         if not self._is_game_over:
             pass

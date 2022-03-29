@@ -6,7 +6,7 @@ class DrawActorsAction(Action):
 
         self._video_service = video_service
 
-    def execute(self, cast, script):
+    def execute(self, cast, script, callback):
         
         ball = cast.get_first_actor("balls")
         paddle_one = cast.get_first_actor("paddle_one")

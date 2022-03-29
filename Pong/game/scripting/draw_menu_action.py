@@ -19,7 +19,7 @@ class DrawMenuAction(Action):
         """
         self._video_service = video_service
 
-    def execute(self, cast, script):
+    def execute(self, cast, script, callback):
         """Executes the draw actors action.
 
         Args:

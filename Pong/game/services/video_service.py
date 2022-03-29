@@ -90,3 +90,19 @@ class VideoService:
     def _get_x_offset(self, text, font_size):
         width = pyray.measure_text(text, font_size)
         return int(width / 2)
+
+    def draw_rectangle(self, rectangle, color, filled = False):
+        x = int(rectangle.get_position().get_x())
+        y = int(rectangle.get_position().get_y())
+        width = int(rectangle.get_size().get_x())
+        height = int(rectangle.get_size().get_y())
+        raylib_color = self._to_raylib_color(color)
+
+        if filled:
+            pyray.draw_rectangle(x, y, width, height, raylib_color)
+        else:
+            pyray.draw_rectangle_lines(x, y, width, height, raylib_color)
+
+    def _to_raylib_color(self, color):
+        r, g, b, a = color.to_tuple()
+        return pyray.Color(r, g, b, a)

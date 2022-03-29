@@ -9,7 +9,7 @@ class ControlActorsAction(Action):
         self._keyboard_service = keyboard_service
         #self._direction = Point(0, constants.CELL_SIZE)
 
-    def execute(self, cast, script):
+    def execute(self, cast, script, callback):
 
         pass
 
