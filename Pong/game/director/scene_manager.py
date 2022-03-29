@@ -60,11 +60,7 @@ class SceneManager:
         right_paddle = Paddle(Body(position= Point(MAX_X - 35, CENTER_Y - (75 / 2)), size = Point(10, 75)))
         cast.add_actor(PADDLE_GROUP, right_paddle)
 
-<<<<<<< HEAD
         ball = Ball((Body(position= Point(CENTER_X, CENTER_Y), size= Point(10, 10))))
-=======
-        ball = Ball(Body(position = Point(CENTER_X, CENTER_Y), size = Point(10, 10)))
->>>>>>> fa41fa3e664b9af7f9faa12c884d1e2fd8a5236c
         cast.add_actor(BALL_GROUP, ball)
 
         script.add_action("input", ControlPaddleAction(keyboard_service))

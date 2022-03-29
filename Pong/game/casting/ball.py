@@ -7,11 +7,6 @@ from game.casting.body import Body
 class Ball():
 
     def __init__(self, body):
-<<<<<<< HEAD
-=======
-
-        super().__init__()
->>>>>>> fa41fa3e664b9af7f9faa12c884d1e2fd8a5236c
         self._body = body
 
     def bounce_x(self):
