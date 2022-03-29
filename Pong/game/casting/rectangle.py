@@ -6,8 +6,8 @@ class Rectangle:
 
     def __init__(self, position, size):
         
-        self._position = Point()
-        self._size = Point() 
+        self._position = position
+        self._size = size 
 
     def get_position(self):
         

@@ -6,7 +6,7 @@ class MoveActorsAction(Action):
 
         self._actors = []
 
-    def execute(self, cast, script):
+    def execute(self, cast, script, callback):
 
         self._actors - cast.get_all_actors()
 

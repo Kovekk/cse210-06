@@ -1,11 +1,11 @@
 from game.casting.actor import Actor
 from constants import *
 from game.shared.point import Point
-class Paddle(Actor):
 
-    def __init__(self, body, debug = False):
+class Paddle():
 
-        super().__init__(debug)
+    def __init__(self, body):
+
         self._body = body
 
     def get_body(self):
@@ -17,7 +17,7 @@ class Paddle(Actor):
         position = self._body.get_position()
         velocity = self._body.get_velocity()
         new_position = position.add(velocity)
-        self._body.set_position(new_position)
+        self.set_position(new_position)
 
     def swing_up(self):
 

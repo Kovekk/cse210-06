@@ -50,8 +50,8 @@ class Director:
         """
         actions = self._script.get_actions(group)    
         for action in actions:
-            action.execute(self._cast, self._script)
+            action.execute(self._cast, self._script, self)
 
 
-    def change_scene(self, scene):
-        self.scene_manager.prepare_scene(scene)
+    def change_scene(self, scene, cast, script):
+        self.scene_manager.prepare_scene(scene, cast, script)
