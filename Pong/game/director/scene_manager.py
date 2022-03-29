@@ -8,8 +8,6 @@ from game.casting.body import Body
 
 from game.scripting.script import Script
 from game.scripting.action import Action
-from game.scripting.control_actors_action_p1 import ControlActorsAction
-from game.scripting.control_actors_action_p2 import ControlActorsAction
 from game.scripting.draw_actors_action import DrawActorsAction
 from game.scripting.handle_collisions_action import HandleCollisionsAction
 from game.scripting.move_actors_action import MoveActorsAction
@@ -17,6 +15,8 @@ from game.scripting.control_menu_action import ControlMenuAction
 from game.scripting.draw_menu_action import DrawMenuAction
 from game.scripting.draw_paddle_action import DrawPaddleAction
 from game.scripting.start_drawing_action import StartDrawingAction
+from game.scripting.control_paddle_action import ControlPaddleAction
+from game.scripting.move_paddle_action import MovePaddleAction
 
 from game.services.keyboard_service import KeyboardService
 from game.services.video_service import VideoService
@@ -50,6 +50,7 @@ class SceneManager:
 
 
     def _prepare_original_pong(self, cast, script):
+        keyboard_service = KeyboardService()
 
         left_paddle = Paddle(Body(position= Point(25, CENTER_Y - (75 / 2)), size= Point(10, 75)))
         cast.add_actor(PADDLE_GROUP, left_paddle)
@@ -60,8 +61,8 @@ class SceneManager:
         ball = Ball(Body(position = Point(CENTER_X, CENTER_Y), size = Point(10, 10)))
         cast.add_actor(BALL_GROUP, ball)
 
-        script.add_action("input", Action())
-        script.add_action("update", Action())
+        script.add_action("input", ControlPaddleAction(keyboard_service))
+        script.add_action("update", MovePaddleAction())
         script.add_action("output", DrawPaddleAction(self._video_service))
 
         
