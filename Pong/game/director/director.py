@@ -38,6 +38,7 @@ class Director:
             self._execute_actions("input")
             self._execute_actions("update")
             self._execute_actions("output")
+            self._execute_actions("balloutput")
         self._video_service.close_window()
 
     def _execute_actions(self, group):

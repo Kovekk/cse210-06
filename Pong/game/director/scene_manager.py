@@ -17,6 +17,8 @@ from game.scripting.draw_paddle_action import DrawPaddleAction
 from game.scripting.start_drawing_action import StartDrawingAction
 from game.scripting.control_paddle_action import ControlPaddleAction
 from game.scripting.move_paddle_action import MovePaddleAction
+from game.scripting.draw_ball_action import DrawBallAction
+from game.scripting.move_ball_action import MoveBallAction
 
 from game.services.keyboard_service import KeyboardService
 from game.services.video_service import VideoService
@@ -63,7 +65,9 @@ class SceneManager:
 
         script.add_action("input", ControlPaddleAction(keyboard_service))
         script.add_action("update", MovePaddleAction())
+        script.add_action("update", MoveBallAction())
         script.add_action("output", DrawPaddleAction(self._video_service))
+        script.add_action("output", DrawBallAction(self._video_service))
 
         
 
