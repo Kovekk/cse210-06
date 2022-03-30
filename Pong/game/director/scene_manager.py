@@ -19,6 +19,7 @@ from game.scripting.end_drawing_action import EndDrawingAction
 from game.scripting.control_paddle_action import ControlPaddleAction
 from game.scripting.move_paddle_action import MovePaddleAction
 from game.scripting.draw_ball_action import DrawBallAction
+from game.scripting.move_ball_action import MoveBallAction
 
 from game.services.keyboard_service import KeyboardService
 from game.services.video_service import VideoService
