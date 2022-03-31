@@ -22,6 +22,7 @@ from game.scripting.draw_ball_action import DrawBallAction
 from game.scripting.move_ball_action import MoveBallAction
 from game.scripting.collide_border_action import CollideBordersAction
 from game.scripting.collide_paddle_action import CollidePaddleAction
+from game.scripting.start_ball_action import StartBallAction
 
 from game.services.keyboard_service import KeyboardService
 from game.services.video_service import VideoService
@@ -67,9 +68,10 @@ class SceneManager:
         ball = Ball((Body(position= Point(CENTER_X, CENTER_Y), size= Point(10, 10))))
         cast.add_actor(BALL_GROUP, ball)
 
-        self._activate_ball(cast)
+        # self._activate_ball(cast)
 
         script.add_action("input", ControlPaddleAction(self._keyboard_service))
+        script.add_action("input", StartBallAction(self._keyboard_service))
         script.add_action("update", MovePaddleAction())
         script.add_action("update", MoveBallAction())
         script.add_action("update", CollideBordersAction(self._physics_service))
