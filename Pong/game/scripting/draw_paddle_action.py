@@ -9,7 +9,6 @@ class DrawPaddleAction(Action):
         
     def execute(self, cast, script, callback):
         paddles = cast.get_actors(PADDLE_GROUP)
-        self._video_service.clear_buffer()
         for paddle in paddles:
 
             body = paddle.get_body()
@@ -18,7 +17,6 @@ class DrawPaddleAction(Action):
             
             self._video_service.draw_rectangle(rectangle, PURPLE)
         
-        self._video_service.flush_buffer()
             
         # animation = racket.get_animation()
         # image = animation.next_image()

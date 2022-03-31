@@ -1,3 +1,4 @@
+from re import X
 from constants import *
 from game.scripting.action import Action
 from game.shared.point import Point
@@ -7,23 +8,11 @@ class MoveBallAction(Action):
 
     def __init__(self):
         pass
-
+        
     def execute(self, cast, script, callback):
-
-        ball = cast.get_actors(BALL_GROUP)
-
+        ball = cast.get_first_actor(BALL_GROUP)
         body = ball.get_body()
-
-        x_velocity = body.get_velocity()
-        y_velocity = body.get_velocity()
         position = body.get_position()
-        y = position.get_y()
-        x = position.get_x()
-
-        y_position = position.add(y_velocity)
-        x_position = position.add(x_velocity)
-
-        if y < 0:
-            ball.bounce_y()
-        elif y < (MAX_Y - BALL_HEIGHT):
-            ball.bounce_y()
+        velocity = body.get_velocity()
+        position = position.add(velocity)
+        body.set_position(position)

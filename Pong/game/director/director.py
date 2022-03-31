@@ -30,7 +30,7 @@ class Director:
             script (Script): The script of actions.
         """
 
-        self.scene_manager.prepare_scene("original_pong", self._cast, self._script)
+        self.scene_manager.prepare_scene("menu", self._cast, self._script)
 
 
         self._video_service.open_window()
@@ -38,7 +38,6 @@ class Director:
             self._execute_actions("input")
             self._execute_actions("update")
             self._execute_actions("output")
-            self._execute_actions("balloutput")
         self._video_service.close_window()
 
     def _execute_actions(self, group):
