@@ -1,8 +1,7 @@
-from re import X
 from constants import *
-from game.scripting.action import Action
 from game.shared.point import Point
-import random
+from game.scripting.action import Action
+
 
 class MoveBallAction(Action):
 
