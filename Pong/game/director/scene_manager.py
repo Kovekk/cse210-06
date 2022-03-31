@@ -54,7 +54,9 @@ class SceneManager:
 
         script.add_action("input", ControlMenuAction(self._keyboard_service))
         script.add_action("update", Action())
+        script.add_action("output", StartDrawingAction(self._video_service))
         script.add_action("output", DrawMenuAction(self._video_service))
+        script.add_action("output", EndDrawingAction(self._video_service))
 
 
     def _prepare_original_pong(self, cast, script):
@@ -68,7 +70,9 @@ class SceneManager:
         ball = Ball((Body(position= Point(CENTER_X, CENTER_Y), size= Point(10, 10))))
         cast.add_actor(BALL_GROUP, ball)
 
-        # self._activate_ball(cast)
+        banner = Actor()
+        banner.set_text('Press enter to start')
+        cast.add_actor('banners', banner)
 
         script.add_action("input", ControlPaddleAction(self._keyboard_service))
         script.add_action("input", StartBallAction(self._keyboard_service))
@@ -79,6 +83,7 @@ class SceneManager:
         script.add_action("output", StartDrawingAction(self._video_service))
         script.add_action("output", DrawPaddleAction(self._video_service))
         script.add_action("output", DrawBallAction(self._video_service))
+        script.add_action("output", DrawMenuAction(self._video_service))
         script.add_action("output", EndDrawingAction(self._video_service))
 
         

@@ -28,6 +28,4 @@ class DrawMenuAction(Action):
         """
         banner = cast.get_first_actor("banners")
         
-        self._video_service.clear_buffer()
         self._video_service.draw_actor(banner)
-        self._video_service.flush_buffer()
