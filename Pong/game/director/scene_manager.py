@@ -21,6 +21,7 @@ from game.scripting.collide_border_action import CollideBordersAction
 from game.scripting.collide_paddle_action import CollidePaddleAction
 from game.scripting.start_ball_action import StartBallAction
 from game.scripting.control_middle_paddle import ControlMiddlePaddle
+from game.scripting.change_scene_action import ChangeSceneAction
 
 from game.services.keyboard_service import KeyboardService
 from game.services.video_service import VideoService
@@ -88,6 +89,7 @@ Press 4 for controls""")
 
         script.add_action("input", ControlPaddleAction(self._keyboard_service))
         script.add_action("input", StartBallAction(self._keyboard_service))
+        script.add_action("input", ChangeSceneAction(self._keyboard_service, "menu"))
         
         script.add_action("update", MovePaddleAction())
         script.add_action("update", MoveBallAction())
@@ -124,7 +126,7 @@ Arrow key down - move down""")
         banner.set_position(Point(CENTER_X - 100, CENTER_Y - 200))
         cast.add_actor("banners", banner)
 
-        script.add_action("input", Action())
+        script.add_action("input", ChangeSceneAction(self._keyboard_service, "menu"))
         script.add_action("update", Action())
         script.add_action("output", StartDrawingAction(self._video_service))
         script.add_action("output", DrawMenuAction(self._video_service))
