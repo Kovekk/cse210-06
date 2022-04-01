@@ -57,7 +57,7 @@ class SceneManager:
         banner = Actor()
         banner.set_font_size(30)
         banner.set_text("""Press 1 for original pong
-Press 2 for four paddle pong
+Press 2 for four paddle pong (Warning: Under Construction / Do Not Press)
 Press 3 for three player pong
 Press 4 for controls""")
         banner.set_position(Point(CENTER_X - 100, CENTER_Y))
