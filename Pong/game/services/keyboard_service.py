@@ -28,6 +28,7 @@ class KeyboardService:
 
         self._keys['up'] = pyray.KEY_UP
         self._keys['down'] = pyray.KEY_DOWN
+        self._keys['backspace'] = pyray.KEY_BACKSPACE
 
     def is_key_up(self, key):
         """Checks if the given key is currently up.
