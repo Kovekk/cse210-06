@@ -39,21 +39,27 @@ class SceneManager:
 
     def prepare_scene(self, scene, cast, script):
         if scene == "menu":
-            self.reset_scene(cast, script)
+            self._reset_scene(cast, script)
             self._prepare_menu_screen(cast, script)
         if scene == "original_pong":
-            self.reset_scene(cast, script)
+            self._reset_scene(cast, script)
             self._prepare_original_pong(cast, script)
         if scene == "three_player_pong":
-            self.reset_scene(cast, script)
+            self._reset_scene(cast, script)
             self._prepare_original_pong(cast, script)
-            self.prepare_third_paddle(cast, script)
+            self._prepare_third_paddle(cast, script)
+        if scene == "instructions":
+            self._reset_scene(cast, script)
+            self._prepare_instructions(cast, script)
 
     def _prepare_menu_screen(self, cast, script):
         
         banner = Actor()
+        banner.set_font_size(30)
         banner.set_text("""Press 1 for original pong
-Press 3 for three player pong""")
+Press 2 for four paddle pong
+Press 3 for three player pong
+Press 4 for controls""")
         banner.set_position(Point(CENTER_X - 100, CENTER_Y))
         cast.add_actor("banners", banner)
 
@@ -96,13 +102,37 @@ Press 3 for three player pong""")
         script.add_action("output", DrawMenuAction(self._video_service))
         script.add_action("output", EndDrawingAction(self._video_service))
     
-    def prepare_third_paddle(self, cast, script):
+    def _prepare_third_paddle(self, cast, script):
         middle_paddle = Paddle(Body(position= Point(CENTER_X - 5, CENTER_Y - (75 / 2)), size= Point(10, 75)))
         cast.add_actor(PADDLE_GROUP, middle_paddle)
 
         script.add_action("input", ControlMiddlePaddle(self._keyboard_service))
 
-    def reset_scene(self, cast, script):
+    def _prepare_instructions(self, cast, script):
+        banner = Actor()
+        banner.set_font_size(30)
+        banner.set_text("""
+Right padde controls:
+W - move up
+S - move down
+
+Left paddle controls:
+I - move up
+S - move down
+
+Middle paddle controls:
+Arrow key up - move up
+Arrow key down - move down""")
+        banner.set_position(Point(CENTER_X - 100, CENTER_Y))
+        cast.add_actor("banners", banner)
+
+        script.add_action("input", ChangeSceneAction(self._keyboard_service, "menu"))
+        script.add_action("update", Action())
+        script.add_action("output", StartDrawingAction(self._video_service))
+        script.add_action("output", DrawMenuAction(self._video_service))
+        script.add_action("output", EndDrawingAction(self._video_service))
+    
+    def _reset_scene(self, cast, script):
         cast.remove_all_actors()
         script.remove_all_actions()
         cast_list = cast.get_all_actors()

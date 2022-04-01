@@ -4,10 +4,10 @@ from game.scripting.action import Action
 
 class ChangeSceneAction(Action):
 
-    def __init__(self, keyboard_service, next_scene):
+    def __init__(self, keyboard_service, scene):
         self._keyboard_service = keyboard_service
-        self._next_scene = next_scene
+        self._next_scene = scene
         
     def execute(self, cast, script, callback):
-        if self._keyboard_service.is_key_pressed(backspace):
-            callback.on_next(self._next_scene)
+        if self._keyboard_service.is_key_pressed("backspace"):
+            callback.change_scene(self._next_scene, cast, script)

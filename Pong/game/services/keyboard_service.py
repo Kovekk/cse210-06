@@ -24,7 +24,9 @@ class KeyboardService:
         self._keys['1'] = pyray.KEY_ONE
         self._keys['2'] = pyray.KEY_TWO
         self._keys['3'] = pyray.KEY_THREE
+        self._keys['4'] = pyray.KEY_FOUR
         self._keys['enter'] = pyray.KEY_ENTER
+        self._keys['backspace'] = pyray.KEY_BACKSPACE
 
         self._keys['up'] = pyray.KEY_UP
         self._keys['down'] = pyray.KEY_DOWN
