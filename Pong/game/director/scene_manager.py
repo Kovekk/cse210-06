@@ -121,7 +121,7 @@ S - move down
 Middle paddle controls:
 Arrow key up - move up
 Arrow key down - move down""")
-        banner.set_position(Point(CENTER_X - 100, CENTER_Y))
+        banner.set_position(Point(CENTER_X - 100, CENTER_Y - 200))
         cast.add_actor("banners", banner)
 
         script.add_action("input", Action())
@@ -133,8 +133,6 @@ Arrow key down - move down""")
     def _reset_scene(self, cast, script):
         cast.remove_all_actors()
         script.remove_all_actions()
-        cast_list = cast.get_all_actors()
-        print(cast_list)
 
     def _activate_ball(self, cast):
         ball = cast.get_first_actor(BALL_GROUP)
