@@ -29,6 +29,16 @@ class Paddle():
         velocity = Point(0, PADDLE_VELOCITY)
         self._body.set_velocity(velocity)
 
+    def swing_left(self):
+
+        velocity = Point(0, PADDLE_VELOCITY)
+        self._body.set_velocity(velocity)
+
+    def swing_right(self):
+
+        velocity = Point(0, PADDLE_VELOCITY)
+        self._body.set_velocity(velocity)
+
     def stop_moving(self):
 
         velocity = Point(0, 0)
