@@ -20,6 +20,7 @@ from game.scripting.move_ball_action import MoveBallAction
 from game.scripting.collide_border_action import CollideBordersAction
 from game.scripting.collide_paddle_action import CollidePaddleAction
 from game.scripting.start_ball_action import StartBallAction
+from game.scripting.control_middle_paddle import ControlMiddlePaddle
 
 from game.services.keyboard_service import KeyboardService
 from game.services.video_service import VideoService
@@ -96,6 +97,8 @@ Press 3 for three player pong""")
     def prepare_third_paddle(self, cast, script):
         middle_paddle = Paddle(Body(position= Point(CENTER_X - 5, CENTER_Y - (75 / 2)), size= Point(10, 75)))
         cast.add_actor(PADDLE_GROUP, middle_paddle)
+
+        script.add_action("input", ControlMiddlePaddle(self._keyboard_service))
 
     def reset_scene(self, cast, script):
         cast.remove_all_actors()
