@@ -107,6 +107,7 @@ Press 4 for controls""")
         cast.add_actor(PADDLE_GROUP, middle_paddle)
 
         script.add_action("input", ControlMiddlePaddle(self._keyboard_service))
+        script.add_action("input", ChangeSceneAction(self._keyboard_service, "menu"))
 
     def _prepare_instructions(self, cast, script):
         banner = Actor()
