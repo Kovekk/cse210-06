@@ -46,7 +46,6 @@ class SceneManager:
             self._prepare_original_pong(cast, script)
         if scene == "three_player_pong":
             self._reset_scene(cast, script)
-            self._prepare_original_pong(cast, script)
             self._prepare_third_paddle(cast, script)
         if scene == "instructions":
             self._reset_scene(cast, script)
@@ -103,10 +102,40 @@ Press 4 for controls""")
         script.add_action("output", EndDrawingAction(self._video_service))
     
     def _prepare_third_paddle(self, cast, script):
+
+        left_paddle = Paddle(Body(position= Point(25, CENTER_Y - (75 / 2)), size= Point(10, 75)))
+        cast.add_actor(PADDLE_GROUP, left_paddle)
+
+        right_paddle = Paddle(Body(position= Point(MAX_X - 35, CENTER_Y - (75 / 2)), size = Point(10, 75)))
+        cast.add_actor(PADDLE_GROUP, right_paddle)
+
+        ball = Ball((Body(position= Point(CENTER_X, CENTER_Y), size= Point(10, 10))))
+        cast.add_actor(BALL_GROUP, ball)
+
+        banner = Actor()
+        banner.set_text('Press enter to start')
+        banner.set_position(Point(CENTER_X - 30, 15))
+        banner.set_font_size(30)
+        cast.add_actor('banners', banner)
+
         middle_paddle = Paddle(Body(position= Point(CENTER_X - 5, CENTER_Y - (75 / 2)), size= Point(10, 75)))
         cast.add_actor(PADDLE_GROUP, middle_paddle)
 
         script.add_action("input", ControlMiddlePaddle(self._keyboard_service))
+        script.add_action("input", ControlPaddleAction(self._keyboard_service))
+        script.add_action("input", StartBallAction(self._keyboard_service))
+        script.add_action("input", ChangeSceneAction(self._keyboard_service, "menu"))
+        
+        script.add_action("update", MovePaddleAction())
+        script.add_action("update", MoveBallAction())
+        script.add_action("update", CollidePaddleAction(self._physics_service))
+        script.add_action("update", CollideBordersAction(self._physics_service))
+        
+        script.add_action("output", StartDrawingAction(self._video_service))
+        script.add_action("output", DrawPaddleAction(self._video_service))
+        script.add_action("output", DrawBallAction(self._video_service))
+        script.add_action("output", DrawMenuAction(self._video_service))
+        script.add_action("output", EndDrawingAction(self._video_service))
 
     def _prepare_instructions(self, cast, script):
         banner = Actor()
