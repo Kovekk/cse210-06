@@ -11,6 +11,7 @@ class ControlPaddleAction(Action):
         paddles = cast.get_actors(PADDLE_GROUP)
         paddle_left = paddles[0]
         paddle_right = paddles[1]
+        
         if self._keyboard_service.is_key_down("w"): 
             paddle_left.swing_up()
         elif self._keyboard_service.is_key_down("s"): 

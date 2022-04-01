@@ -15,7 +15,7 @@ class DrawPaddleAction(Action):
 
             rectangle = body.get_rectangle()
             
-            self._video_service.draw_rectangle(rectangle, PURPLE)
+            self._video_service.draw_rectangle(rectangle, WHITE)
         
             
         # animation = racket.get_animation()
