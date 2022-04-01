@@ -21,6 +21,7 @@ from game.scripting.collide_border_action import CollideBordersAction
 from game.scripting.collide_paddle_action import CollidePaddleAction
 from game.scripting.start_ball_action import StartBallAction
 from game.scripting.control_middle_paddle import ControlMiddlePaddle
+from game.scripting.change_scene_action import ChangeSceneAction
 
 from game.services.keyboard_service import KeyboardService
 from game.services.video_service import VideoService
