@@ -21,6 +21,12 @@ class KeyboardService:
         self._keys['i'] = pyray.KEY_I
         self._keys['k'] = pyray.KEY_K
 
+        self._keys['5'] = pyray.KEY_FIVE
+        self._keys['6'] = pyray.KEY_SIX
+
+        self._keys['v'] = pyray.KEY_V
+        self._keys['b'] = pyray.KEY_B
+
         self._keys['1'] = pyray.KEY_ONE
         self._keys['2'] = pyray.KEY_TWO
         self._keys['3'] = pyray.KEY_THREE
