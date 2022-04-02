@@ -27,14 +27,14 @@ class CollideBordersAction(Action):
         if x < FIELD_LEFT:
             self.player2_score += 1
             cast.reset_actor_group(BALL_GROUP)
-            ball = Ball((Body(position= Point(CENTER_X, CENTER_Y), size= Point(10, 10))))
+            ball = Ball((Body(position= Point(CENTER_X + 10, CENTER_Y), size= Point(10, 10))))
             cast.add_actor(BALL_GROUP, ball)
             script.add_action("input", StartBallAction(KeyboardService()))
 
         elif x >= (FIELD_RIGHT - BALL_WIDTH):
             self.player1_score += 1
             cast.reset_actor_group(BALL_GROUP)
-            ball = Ball((Body(position= Point(CENTER_X, CENTER_Y), size= Point(10, 10))))
+            ball = Ball((Body(position= Point(CENTER_X + 10, CENTER_Y), size= Point(10, 10))))
             cast.add_actor(BALL_GROUP, ball)
             script.add_action("input", StartBallAction(KeyboardService()))
 

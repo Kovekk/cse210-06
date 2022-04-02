@@ -26,6 +26,6 @@ class DrawMenuAction(Action):
             cast (Cast): The cast of Actors in the game.
             script (Script): The script of Actions in the game.
         """
-        banner = cast.get_first_actor("banners")
-        
-        self._video_service.draw_actor(banner)
+        banners = cast.get_actors("banners")
+        for banner in banners:
+            self._video_service.draw_actor(banner)

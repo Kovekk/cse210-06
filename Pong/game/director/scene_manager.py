@@ -55,11 +55,12 @@ class SceneManager:
         
         banner = Actor()
         banner.set_font_size(30)
-        banner.set_text("""Press 1 for original pong
-Press 2 for four paddle pong (Warning: Under Construction / Do Not Press)
+        banner.set_text("""
+     Press 1 for controls
+   Press 2 for original pong
 Press 3 for three player pong
-Press 4 for controls""")
-        banner.set_position(Point(CENTER_X - 100, CENTER_Y))
+""")
+        banner.set_position(Point(CENTER_X - 250, CENTER_Y - 100))
         cast.add_actor("banners", banner)
 
         script.add_action("input", ControlMenuAction(self._keyboard_service))
@@ -81,14 +82,25 @@ Press 4 for controls""")
         cast.add_actor(BALL_GROUP, ball)
 
         banner = Actor()
-        banner.set_text('Press enter to start')
+        banner.set_text('')
         banner.set_position(Point(CENTER_X - 30, 15))
         banner.set_font_size(30)
         cast.add_actor('banners', banner)
 
+        start_instructions = Actor()
+        start_instructions.set_text("Press enter to start")
+        start_instructions.set_font_size(20)
+        cast.add_actor('banners', start_instructions)
+
+        return_to_menu = Actor()
+        return_to_menu.set_text("Press backspace to return to menu")
+        return_to_menu.set_position(Point(MAX_X - 375, 0))
+        return_to_menu.set_font_size(20)
+        cast.add_actor('banners', return_to_menu)
+
         script.add_action("input", ControlPaddleAction(self._keyboard_service))
-        script.add_action("input", StartBallAction(self._keyboard_service))
         script.add_action("input", ChangeSceneAction(self._keyboard_service, "menu"))
+        script.add_action("input", StartBallAction(self._keyboard_service))
         
         script.add_action("update", MovePaddleAction())
         script.add_action("update", MoveBallAction())
@@ -109,7 +121,7 @@ Press 4 for controls""")
         right_paddle = Paddle(Body(position= Point(MAX_X - 35, CENTER_Y - (75 / 2)), size = Point(10, 75)))
         cast.add_actor(PADDLE_GROUP, right_paddle)
 
-        ball = Ball((Body(position= Point(CENTER_X, CENTER_Y), size= Point(10, 10))))
+        ball = Ball((Body(position= Point(CENTER_X + 10, CENTER_Y), size= Point(10, 10))))
         cast.add_actor(BALL_GROUP, ball)
 
         banner = Actor()
@@ -118,13 +130,24 @@ Press 4 for controls""")
         banner.set_font_size(30)
         cast.add_actor('banners', banner)
 
+        start_instructions = Actor()
+        start_instructions.set_text("Press enter to start")
+        start_instructions.set_font_size(20)
+        cast.add_actor('banners', start_instructions)
+
+        return_to_menu = Actor()
+        return_to_menu.set_text("Press backspace to return to menu")
+        return_to_menu.set_position(Point(MAX_X - 375, 0))
+        return_to_menu.set_font_size(20)
+        cast.add_actor('banners', return_to_menu)
+
         middle_paddle = Paddle(Body(position= Point(CENTER_X - 5, CENTER_Y - (75 / 2)), size= Point(10, 75)))
         cast.add_actor(PADDLE_GROUP, middle_paddle)
 
         script.add_action("input", ControlMiddlePaddle(self._keyboard_service))
         script.add_action("input", ControlPaddleAction(self._keyboard_service))
-        script.add_action("input", StartBallAction(self._keyboard_service))
         script.add_action("input", ChangeSceneAction(self._keyboard_service, "menu"))
+        script.add_action("input", StartBallAction(self._keyboard_service))
         
         script.add_action("update", MovePaddleAction())
         script.add_action("update", MoveBallAction())
@@ -147,13 +170,19 @@ S - move down
 
 Left paddle controls:
 I - move up
-S - move down
+K - move down
 
 Middle paddle controls:
 Arrow key up - move up
 Arrow key down - move down""")
-        banner.set_position(Point(CENTER_X - 100, CENTER_Y - 200))
+        banner.set_position(Point(CENTER_X - 200, 25))
         cast.add_actor("banners", banner)
+
+        return_to_menu = Actor()
+        return_to_menu.set_text("Press backspace to return to menu")
+        return_to_menu.set_position(Point(MAX_X - 375, 0))
+        return_to_menu.set_font_size(20)
+        cast.add_actor('banners', return_to_menu)
 
         script.add_action("input", ChangeSceneAction(self._keyboard_service, "menu"))
         script.add_action("update", Action())

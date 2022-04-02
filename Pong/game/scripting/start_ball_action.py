@@ -14,4 +14,4 @@ class StartBallAction:
         ball = cast.get_first_actor(BALL_GROUP)
         ball.release()    
         input_actions = script.get_actions("input")
-        script.remove_action("input", input_actions[1])
+        script.remove_action("input", input_actions[len(input_actions) - 1])
